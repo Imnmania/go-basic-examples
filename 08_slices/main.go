@@ -48,7 +48,7 @@ func main() {
 	fmt.Println(sort.IntsAreSorted(highScores))
 
 	/// -----------------------------------------
-	/// remove a value from slices based on index
+	/// delete a value from slices based on index
 	/// -----------------------------------------
 	var courses = []string{"Flutter", "Java", "Kotlin", "Python", "C#"}
 	fmt.Println(courses)
