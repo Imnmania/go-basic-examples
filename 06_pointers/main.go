@@ -10,10 +10,15 @@ func main() {
 
 	myNumber := 23
 
-	/// Reference => &
+	/// ---------------------
+	/// Memory Reference => &
+	/// ---------------------
 	var ptr = &myNumber
 	fmt.Println("Value of actual pointer => ", ptr)
+
+	/// ---------------------
 	/// Value of Reference => *
+	/// ---------------------
 	fmt.Println("Value of actual pointer => ", *ptr)
 
 	*ptr = *ptr * 2
