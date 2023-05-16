@@ -22,6 +22,7 @@ func main() {
 }
 
 func readFile(filename string) {
+	// dataByte, err := ioutil.ReadFile(filename) //! ReadFile got deprecated on ioutil package
 	dataByte, err := os.ReadFile(filename)
 	// if err != nil {
 	// 	panic(err)
