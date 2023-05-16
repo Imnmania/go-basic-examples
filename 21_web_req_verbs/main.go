@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"net/url"
 	"strings"
 )
 
@@ -11,7 +12,8 @@ func main() {
 	fmt.Println("Welcome to web req in golang")
 
 	// PerformGetRequest()
-	PerformPostRequest()
+	// PerformPostRequest()
+	PerformPostFormRequest()
 }
 
 // -----------
@@ -44,7 +46,7 @@ func PerformGetRequest() {
 }
 
 // ---------------------------
-// Post Request with Json Body
+// Post Request with Json Data
 // ---------------------------
 func PerformPostRequest() {
 	const myUrl = "http://localhost:1111/post"
@@ -69,4 +71,28 @@ func PerformPostRequest() {
 	content, _ := io.ReadAll(response.Body)
 
 	fmt.Println(string(content))
+}
+
+// ---------------------------
+// Post Request with Form Body
+// ---------------------------
+func PerformPostFormRequest() {
+	const myUrl = "http://localhost:1111/postform"
+
+	// form data
+	data := url.Values{}
+	data.Add("firstname", "Niloy")
+	data.Add("lastname", "Biswas")
+	data.Add("email", "n@b.com")
+
+	response, error := http.PostForm(myUrl, data)
+
+	if error != nil {
+		panic(error)
+	}
+	defer response.Body.Close()
+
+	content, _ := io.ReadAll(response.Body)
+	fmt.Println(string(content))
+
 }
