@@ -29,6 +29,23 @@ func EncodeJson() {
 	fmt.Println(string(finalJson))
 }
 
+func DecodeJson() {
+	jsonDataFromWeb := []byte(`
+	{
+		"courseName": "Flutter Bootcamp",
+		"price": 199,
+		"platform": "learncodeonline.in",
+		"tag": [
+				"web-dev",
+				"mobile-dev"
+		]
+	}
+	`)
+
+	var lcoCourse Course
+	json.Valid(jsonDataFromWeb)
+}
+
 func main() {
 	fmt.Println("Welcome to json handling in golang!")
 	EncodeJson()
