@@ -69,7 +69,6 @@ func PerformPostRequest() {
 	defer response.Body.Close()
 
 	content, _ := io.ReadAll(response.Body)
-
 	fmt.Println(string(content))
 }
 
