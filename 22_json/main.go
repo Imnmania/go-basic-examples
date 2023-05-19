@@ -43,10 +43,29 @@ func DecodeJson() {
 	`)
 
 	var lcoCourse Course
-	json.Valid(jsonDataFromWeb)
+
+	checkValid := json.Valid(jsonDataFromWeb)
+
+	if checkValid {
+		fmt.Println("JSON is valid")
+		json.Unmarshal(jsonDataFromWeb, &lcoCourse)
+		fmt.Printf("%#v \n", lcoCourse)
+	} else {
+		fmt.Println("JSON was not valid")
+	}
+
+	/// some cases where you just want to add data to key-value pair
+	var myOnlineData map[string]interface{}
+	json.Unmarshal(jsonDataFromWeb, &myOnlineData)
+	fmt.Printf("%#v \n", myOnlineData)
+
+	for k, v := range myOnlineData {
+		fmt.Printf("Key => %v || Value => %v || Type => %T \n", k, v, v)
+	}
 }
 
 func main() {
 	fmt.Println("Welcome to json handling in golang!")
-	EncodeJson()
+	// EncodeJson()
+	DecodeJson()
 }
