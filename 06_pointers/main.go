@@ -14,7 +14,7 @@ func main() {
 	/// Memory Reference => &
 	/// ---------------------
 	var ptr = &myNumber
-	fmt.Println("Value of actual pointer => ", ptr)
+	fmt.Println("Memory reference => ", ptr)
 
 	/// ---------------------
 	/// Value of Reference => *
